@@ -24,8 +24,18 @@ jobs:
           accept-android-sdk-licenses: true
           log-accepted-android-sdk-licenses: true
 
-- name: Verify SDK manager and install packages
+- name: Debug Android SDK setup
   run: |
+    echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
+    echo "Listando contenido de ANDROID_SDK_ROOT:"
+    ls -R "$ANDROID_SDK_ROOT" || echo "ANDROID_SDK_ROOT not set"
+    which sdkmanager || echo "sdkmanager not found in PATH"
+    if [ -x "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" ]; then
+      echo "sdkmanager exists at $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+      "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" --version
+    else
+      echo "sdkmanager not executable at expected location"
+    fi
     echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT"
     which sdkmanager || echo "sdkmanager not found in PATH"
     if [ -x "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" ]; then
