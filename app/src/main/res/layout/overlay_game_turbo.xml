@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://android.com"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#CC121212"
+    android:padding="6dp">
+    <Button
+        android:id="@+id/btnTogglePanel"
+        android:layout_width="40dp"
+        android:layout_height="80dp"
+        android:text="🎙️"
+        android:backgroundTint="#FF5722" />
+    <LinearLayout
+        android:id="@+id/panelEfectos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:paddingStart="6dp">
+        <Button android:id="@+id/btnNormal" android:layout_width="110dp" android:layout_height="38dp" android:text="Normal" />
+        <Button android:id="@+id/btnArdilla" android:layout_width="110dp" android:layout_height="38dp" android:text="🐿️ Ardilla" />
+        <Button android:id="@+id/btnHelio" android:layout_width="110dp" android:layout_height="38dp" android:text="🎈 Helio" />
+        <Button android:id="@+id/btnRobot" android:layout_width="110dp" android:layout_height="38dp" android:text="🤖 Robot" />
+        <Button android:id="@+id/btnMonstruo" android:layout_width="110dp" android:layout_height="38dp" android:text="👹 Monstruo" />
+    </LinearLayout>
+</LinearLayout>
