@@ -43,7 +43,7 @@ jobs:
     else
       SDKMANAGER="sdkmanager"
     fi
-    yes | $SDKMANAGER "platforms;android-33" "build-tools;33.0.0" "platform-tools"
+    "$ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager" "platforms;android-33" "build-tools;33.0.0" "platform-tools"
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
