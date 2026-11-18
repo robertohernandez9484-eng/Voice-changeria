@@ -19,12 +19,12 @@ jobs:
           java-version: '17'
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
         with:
           api-level: 33
           ndk: '25.2.9519653'
-          # Accept licenses automatically
-          accept-licenses: true
+          accept-android-sdk-licenses: true
+          packages: "platform-tools cmdline-tools;latest"
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
