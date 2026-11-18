@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.22.1)
 project("voicetuner_native")
 find_package(oboe REQUIRED CONFIG)
-file(GLOB SOUNDTOUCH_SOURCES "soundtouch/source/SoundTouch/*.cpp")
+file(GLOB SOUNDTOUCH_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/soundtouch/source/SoundTouch/*.cpp")
 add_library(voicetuner_native SHARED native-lib.cpp ${SOUNDTOUCH_SOURCES})
-target_include_directories(voicetuner_native PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/soundtouch/include)
+target_include_directories(voicetuner_native PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/soundtouch/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/soundtouch/source/SoundTouch
+)
 target_link_libraries(voicetuner_native oboe::oboe log android)

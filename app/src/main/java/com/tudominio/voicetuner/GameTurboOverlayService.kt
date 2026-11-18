@@ -50,7 +50,17 @@ class GameTurboOverlayService : Service() {
     private fun setupFloatingPanel() {
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         overlayView = LayoutInflater.from(this).inflate(R.layout.overlay_game_turbo, null)
-        // Aquí deberías añadir listeners a los botones para llamar a setVoiceEffect(...)
+        val btnToggle = overlayView.findViewById<Button>(R.id.btnTogglePanel)
+        val panel = overlayView.findViewById<LinearLayout>(R.id.panelEfectos)
+        btnToggle.setOnClickListener {
+            panel.visibility = if (panel.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+        }
+        overlayView.findViewById<Button>(R.id.btnNormal)?.setOnClickListener { setVoiceEffect(0) }
+        overlayView.findViewById<Button>(R.id.btnArdilla)?.setOnClickListener { setVoiceEffect(1) }
+        overlayView.findViewById<Button>(R.id.btnHelio)?.setOnClickListener { setVoiceEffect(2) }
+        overlayView.findViewById<Button>(R.id.btnRobot)?.setOnClickListener { setVoiceEffect(3) }
+        overlayView.findViewById<Button>(R.id.btnMonstruo)?.setOnClickListener { setVoiceEffect(4) }
+
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,

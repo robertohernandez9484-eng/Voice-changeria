@@ -1,16 +1,13 @@
-package com.tudominio.voicetuner;
+package com.tudominio.voicetuner
 
-import android.content.Intent;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
-public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // Start the overlay service
-        startService(new Intent(this, GameTurboOverlayService.class));
-        // Close activity after starting service
-        finish();
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        startService(Intent(this, GameTurboOverlayService::class.java))
+        finish()
     }
 }
