@@ -23,6 +23,8 @@ jobs:
         with:
           api-level: 33
           build-tools-version: '33.0.0'
+          ndk-version: '25.2.0'
+          cmake-version: '3.22.1'
           accept-android-sdk-licenses: true
           log-accepted-android-sdk-licenses: true
 
